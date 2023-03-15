@@ -8,7 +8,8 @@ import {
     SET_CURRENT,
     CLEAR_CURRENT,
     FILTER_CONTACTS,
-    CLEAR_FILTER
+    CLEAR_FILTER,
+    UPDATE_CONTACT
 } from '../types';
 import ContactContext from "./contactContext";
 import { STATES } from "mongoose";
@@ -70,6 +71,11 @@ const ContactState = props => {
     }
 
     // Update Contact
+
+    const updateContact = contact => {
+        dispatch({type: UPDATE_CONTACT, payload: contact});
+
+    }
     
     // Filter Contact
 
@@ -83,7 +89,8 @@ const ContactState = props => {
             addContact,
             deleteContact,
             setCurrent,
-            clearCurrent
+            clearCurrent,
+            updateContact
         }}
         >
             { props.children}
